@@ -1,649 +1,627 @@
-//===== Hercules Script ======================================
-//= Thanatos Tower Quest
-//===== By: ==================================================
-//= Muad_Dib
-//===== Current Version: =====================================
-//= 1.1a
-//===== Description: =========================================
-//= [Official Conversion]
-//= Episode 13.1 Thanatos Tower quest.
-//===== Additional Comments: =================================
-//= 1.0 Adapted from official release. [Euphy]
-//= 1.0a Added 'npcskill' command. [Euphy]
-//= 1.1 Kagerou/Oboro support (Class -> BaseClass) [Euphy]
-//============================================================
+/    ________________________________________________________
+//   /                                                        \
+//   |       _           _   _   _                            |
+//   |      | |__  _ __ / \ | |_| |__   ___ _ __   __ _       |
+//   |      | '_ \| '__/ _ \| __| '_ \ / _ \ '_ \ / _` |      |
+//   |      | |_) | | / ___ \ |_| | | |  __/ | | | (_| |      |
+//   |      |_.__/|_|/_/   \_\__|_| |_|\___|_| |_|\__,_|      |
+//   |                                                        |
+//   |                    brAthena Script                     |
+//   |--------------------------------------------------------|
+//   | Nome do Script: torre_thanatos.txt                     |
+//   |--------------------------------------------------------|
+//   | Criado por: eA/rA/brA Dev. Team                        |
+//   |--------------------------------------------------------|
+//   | Versões eA/rA/brA: 2.1/1.0a/1.0                        |
+//   |--------------------------------------------------------|
+//   | Descrição: Quest da Torre Thanatos.                    |
+//   |--------------------------------------------------------|
+//   | Changelog:                                             |
+//   | 1.0 Criado Cabeçalho [Megasantos]                      |
+//   | Tradutor:											  |
+//   | [CraftDTF]                      						  |
+//   |--------------------------------------------------------|
+//   | - Anotações                                            |
+//   \________________________________________________________/
 
-hu_fild01,140,163,5	script	Tower Keeper	4_M_EIN_SOLDIER,3,3,{
+hu_fild01,140,163,5	script	Guardião da Torre	4_M_EIN_SOLDIER,3,3,{
 	mes "[Gatei]";
-	mes "Greetings, adventurer.";
-	mes "I am Gatei Knumm, keeper";
-	mes "of this Thanatos Tower.";
-	mes "How may I help you?";
+	mes "Saudações, aventureiro.";
+	mes "Meu nome é Gatei Knumm, guardião";
+	mes "da Torre de Thanatos.";
+	mes "Em que posso ajudar?";
 	next;
-	switch(select("Thanatos Tower?:Entrance Fee?:Enter the tower:Cancel")) {
+	switch(select("Torre de Thanatos?:Taxa de entrada?:Entrar na torre:Cancelar")) {
 	case 1:
 		mes "[Gatei]";
-		mes "Yes, the tower in front";
-		mes "of you was an ancient ruins";
-		mes "that got its name from a word";
-		mes "written on a stone plate found";
-		mes "inside. Today, this place is";
-		mes "a popular tourist attraction.";
+		mes "Sim, a torre à sua frente";
+		mes "era uma ruína antiga";
+		mes "que recebeu seu nome de uma palavra";
+		mes "escrito em uma placa de pedra encontrada";
+		mes "no seu interior. Hoje em dia, este lugar";
+		mes "é uma atração turística popular.";
 		next;
 		mes "[Gatei]";
-		mes "This tower grew in popularity";
-		mes "for adventurers when the";
-		mes "Rekenber Corporation began";
-		mes "tower reconstruction efforts.";
-		mes "The 1st and 2nd floors are now";
-		mes "repaired and free of monsters.";
+		mes "A torre ganhou mais popularidade";
+		mes "entre os aventureiros quando a ";
+		mes "Corporação Rekenber começou";
+		mes "sua reconstrução.";
+		mes "O primeiro e o segundo andar estão agora";
+		mes "reparados e sem monstros.";
 		next;
 		mes "[Gatei]";
-		mes "However, reconstruction of";
-		mes "the 3rd and higher floors is";
-		mes "incomplete. Those levels are";
-		mes "still infested with monsters, so we're contracting temp workers";
-		mes "to exterminate all of them.";
+		mes "Mas a reconstrução do";
+		mes "terceiro andar ainda está ";
+		mes "incompleta. Este andar ainda";
+		mes "está cheio de monstros, portanto estamos contratando trabalhadores temporários";
+		mes "para exterminarem todas estas criaturas.";
 		next;
 		mes "[Gatei]";
-		mes "If you're interested in";
-		mes "temporary contract work,";
-		mes "or would like to know about";
-		mes "this place in detail, please";
-		mes "ask one of the guides inside.";
-		mes "Thank you and enjoy your visit~";
+		mes "Você estaria interessado em";
+		mes "um trabalho temporário,";
+		mes "ou gostaria de saber mais sobre";
+		mes "este lugar, por favor";
+		mes "pergunte a algum guia lá dentro sobre alguma destas coisas.";
+		mes "Obrigado e aproveite bem sua visita!";
 		close;
 	case 2:
 		mes "[Gatei]";
-		mes "Everyone is welcome to";
-		mes "enjoy Thanatos Tower.";
-		mes "Only the 1st and 2nd floors";
-		mes "are open to the public at";
-		mes "this time. The entrance fee";
-		mes "is 5,000 zeny per person.";
+		mes "Todos são bem-vindos";
+		mes "na Torre de Thanatos.";
+		mes "Apenas o primeiro e o segundo andar";
+		mes "estão abertos ao público";
+		mes "por enquanto. A taxa de entrada";
+		mes "é de 5000 zenys por pessoa.";
 		next;
 		mes "[Gatei]";
-		mes "5,000 zeny may seem a little";
-		mes "steep for a tourist attraction,";
-		mes "but trust me, this tower provides a very unique experience. Also,";
-		mes "our loyal customers and contract workers get a special discount~";
+		mes "5000 zenys parece ser um preço um pouco salgado";
+		mes "para uma atração turística,";
+		mes "mas confie em mim, esta torre lhe dará uma experiência única na vida.";
+		mes "Inclusive, nossos clientes e trabalhadores contratados têm um desconto especial!";
 		close;
 	case 3:
 		mes "[Gatei]";
-		mes "Would you like to";
-		mes "enter Thanatos Tower?";
-		mes "The entry fee is ^FF00005,000 zeny^000000.";
+		mes "Gostaria de";
+		mes "entrar na Torre de Thanatos?";
+		mes "A taxa de entrada é de ^FF00005,000 zenys^000000.";
 		next;
-		switch(select("Enter:Maybe next time.")) {
+		switch(select("Entrar:Quem sabe na próxima.")) {
 		case 1:
 			if (thana_tower > 0) {
 				mes "[Gatei]";
 				mes "Oh, "+strcharinfo(0)+"!";
-				mes "Welcome back! Since you've";
-				mes "got a temporary Rekenber";
-				mes "work contract, your entrance";
-				mes "fee is only 3,000 zeny.";
+				mes "Bem-vindo de volta! Como você já ";
+				mes "pegou sua vaga como";
+				mes "trabalhador temporário, sua taxa";
+				mes "de entrada é de 3,000 zenys.";
 				next;
-				switch(select("Enter:No, thanks.")) {
+				switch(select("Entrar:Não, obrigado.")) {
 				case 1:
 					if (Zeny > 2999) {
-						mes "[Gatei]";
-						mes "Thank you, and";
-						mes "please keep up the";
-						mes "good work. Ah, and don't";
-						mes "forget: safety first when";
-						mes "you fight those monsters!";
-						Zeny -= 3000;
+							mes "[Gatei]";
+						mes "Obrigado, e ";
+						mes "continue com o ";
+						mes "bom trabalho. E não";
+						mes "se esqueça: segurança em primeiro lugar quando";
+						mes "estiver lutando com aqueles monstros!";
+						set Zeny, Zeny - 3000;
 						close2;
 						warp "tha_scene01",131,220;
 						end;
 					}
 					mes "[Gatei]";
-					mes "Oh, I'm sorry...";
-					mes "But you don't seem to";
-					mes "have enough zeny. Oh well,";
-					mes "just come back again later~";
+					mes "Oh, desculpe...";
+					mes "Parece que você não";
+					mes "tem zenys suficientes. Bem,";
+					mes "volte mais tarde!";
 					close;
 				case 2:
+				case 2:
 					mes "[Gatei]";
-					mes "You must be busy, then.";
-					mes "Well, not to worry, we'll";
-					mes "always be here. Farewell~";
+					mes "Você deve estar ocupado, então.";
+					mes "Bem, não se preocupe, nós vamos";
+					mes "estar sempre aqui. Até logo~";
 					close;
 				}
 			}
 			if (Zeny > 4999) {
 				mes "[Gatei]";
-				mes "Ah, I've received your";
-				mes "entrance fee. Thank you";
-				mes "very much. Now, I hope";
-				mes "you enjoy your visit";
-				mes "to Thanatos Tower~";
+				mes "Ah, Recebi o seu";
+				mes "taxa de entrada. Muito";
+				mes "obrigado. Bem, espero que";
+				mes "tenha aproveitado sua visita";
+				mes "à Torre de Thanatos~";
 				close2;
 				Zeny -= 5000;
 				warp "tha_scene01",131,220;
 				end;
 			}
 			mes "[Gatei]";
-			mes "Well...";
-			mes "Hm. I'm sorry, but you";
-			mes "don't seem to have enough";
-			mes "zeny for the entrance fee.";
-			mes "Please come back later...";
+			mes "Bem...";
+			mes "Hm. Sinto muito, mas você";
+			mes "não tem zeny o suficiente";
+			mes "para a taxa de entrada.";
+			mes "Retorne quando tiver...";
 			close;
 		case 2:
 			mes "[Gatei]";
-			mes "Very well. Please come";
-			mes "and visit us again here";
-			mes "in Thanatos Tower.";
+			mes "Muito bem. Por favor";
+			mes "volte a nos visitar mais vezes";
+			mes "aqui na Torre de Thanatos.";
 			close;
 		}
 	case 4:
 		mes "[Gatei]";
-		mes "Hmm? Very well.";
-		mes "But if you wish to visit";
-		mes "this Thanatos Tower, please";
-		mes "do not hesitate to ask me.";
-		mes "Thank you and have a nice day.";
+		mes "Hmm? Muito bem.";
+		mes "Mas se você deseja visitar";
+		mes "a Torre de Thanatos, por favor";
+		mes "não hesite em me perguntar.";
+		mes "Obrigado e tenha um ótimo dia.";
 		close;
 	}
 
 OnTouch:
-	mes "[Tower Keeper]";
-	mes "Excuse me, but you cannot";
-	mes "enter. This place is under";
-	mes "the Rekenber Corporation's";
-	mes "administration, and this area";
-	mes "is restricted to all those";
-	mes "without authorization.";
+	mes "[Guardião da Torre]";
+	mes "Desculpe-me, mas você não pode";
+	mes "entrar. Este lugar está sob ";
+	mes "administração da Corporação Rekenber";
+	mes "e esta área é restrito ";
+	mes "a todos aqueles sem autorização.";
 	close;
 }
 
 tha_t01,149,78,4	script	Guide	4_F_01,{
 	if (thana_tower == 0) {
 		mes "[Ditze]";
-		mes "Welcome to Thanatos Tower.";
-		mes "The tower's reconstruction is";
-		mes "a Rekenber Corporation project,";
-		mes "and the 1st and 2nd floors are";
-		mes "now open to the public. So";
-		mes "how may I help you today?";
+		mes "Bem-vindo à Torre de Thanatos.";
+		mes "A reconstrução da torre é ";
+		mes "um projeto da Corporação Rekenber,";
+		mes "e apenas o primeiro e segundo andar";
+		mes "estão abertos para o público. Então,";
+		mes "como posso lhe ajudar hoje?";
 		next;
-		switch(select("Tower Information:Temporary Work Contract:Cancel")) {
+		switch(select("Informação sobre a torre:Contrato de trabalho temporário:Cancelar")) {
 		case 1:
 			mes "[Ditze]";
-			mes "When this tower was built,";
-			mes "who built it, and its purpose";
-			mes "are all mysteries. There are";
-			mes "many rumors about it being a";
-			mes "Mage lab, a hero's momunent,";
-			mes "or a demon fortress...";
+			mes "Quando essa torre foi construída,";
+			mes "quem a construiu, e seu propósito";
+			mes "eram um mistério. Existem";
+			mes "muitos rumores sobre a torre ser um";
+			mes "Laboratório, um monumento a heróis";
+			mes "ou um forte de demônios...";
 			next;
 			mes "[Ditze]";
-			mes "The Rekenber Corporation has";
-			mes "been researching the origin of";
-			mes "this tower, but has not yet been able to confirm anything. Although";
-			mes "we've lost many researchers to the tower monsters, we won't give up!";
+			mes "A Corporação Rekenber vem";
+			mes "pesquisando a origem desta";
+			mes "torre, mas por enquanto ainda não acho nenhuma pista que realmente confirmasse algo. Mesmo";
+			mes "tendo perdido muitas pesquisas para os monstros da torre, nós não desistiremos!";
 			next;
 			mes "[Ditze]";
-			mes "Rekenber is convinced that this";
-			mes "tower holds many secrets, and";
-			mes "successfully reconstructed the";
-			mes "first 2 floors of this tower in";
-			mes "the pursuit of this knowledge.";
+			mes "Rekenber está convencido de que esta";
+			mes "torre guarda muitos segredos, e";
+			mes "está, com sucesso, reconstruindo";
+			mes "os primeiros 2 andares em busca de mais";
+			mes "e mais conhecimento.";
 			next;
 			mes "[Ditze]";
-			mes "Currently, we are focused on";
-			mes "reconstructing the tower's 3rd";
-			mes "and 4th floors. Luckily, many";
-			mes "adventurers are exterminating";
-			mes "the monsters on those floors, working under temporary contracts.";
+			mes "No momento, estamos concentrados na";
+			mes "reconstrução do terceiro e";
+			mes "quarto andar da torre. Com sorte, muitos";
+			mes "aventureiros estão exterminando";
+			mes "diversos monstros nesses andares, trabalhando como funcionários temporários.";
 			next;
 			mes "[Ditze]";
-			mes "At this rate, we expect";
-			mes "to complete reconstruction";
-			mes "of the 3rd and 4th floors in";
-			mes "the near future, bringing us";
-			mes "closer to our goal of opening all 12 floors of Thanatos Tower.";
+			mes "Estamos esperando";
+			mes "que a reconstrução completa";
+			mes "do terceiro e quarto andar esteja pronta";
+			mes "em um futuro próximo, nos trazendo";
+			mes "mais perto de nosso objetivo de abrir para visitação todos os 12 andares da Torre de Thanatos.";
 			next;
-			switch(select("Tower Monsters?:Temp Contract Work?:......")) {
+			switch(select("Monstros da torre?:Contrato temporário de trabalho?:......")) {
 			case 1:
 				mes "[Ditze]";
-				mes "Yes, when we began";
-				mes "reconstruction of the";
-				mes "Thanatos Tower, these";
-				mes "monsters that look like angels";
-				mes "just appeared out of nowhere";
-				mes "to attack all the workers.";
+				mes "Sim, quando nós começamos";
+				mes "a reconstrução da";
+				mes "Torre de Thanatos, estes";
+				mes "monstros que se pareciam com anjos";
+				mes "apareceram do nada";
+				mes "para atacar a todos os trabalhadores.";
 				next;
 				mes "[Ditze]";
-				mes "At first, witnesses thought";
-				mes "that these monsters might";
-				mes "be, you know, actual angels.";
-				mes "But if they were, why were they";
-				mes "attacking for no reason?";
+				mes "O que primeiro veio em nossas cabeças";
+				mes "era que estes monstros talvez fossem...";
+				mes "você sabe... anjos de verdade.";
+				mes "Mas se eles realmente fossem, por que estariam";
+				mes "nos atacando sem motivo algum?";
 				next;
 				mes "[Ditze]";
-				mes "Anyway, we asked the Juno ";
-				mes "Sage Academy to investigate";
-				mes "them, and they confirmed that";
-				mes "these angelic creatures are true monsters--their resemblance to";
-				mes "angels is merely coincidence.";
+				mes "Pedimos à Academia ";
+				mes "de Sábios de Juno para investigar,";
+				mes "e eles confirmaram que ";
+				mes "estas criaturas angelicais eram monstros de verdade; a aparência deles lembrar";
+				mes "anjos era apenas uma coincidência.";
 				close;
 			case 2:
-				mes "[Ditze]";
-				mes "You may have already heard";
-				mes "from the Tower Keeper, but";
-				mes "we're contracting adventurers to exterminate the tower monsters";
-				mes "in the 3rd and higher levels on";
-				mes "a temporary employee basis.";
-				next;
-				mes "[Ditze]";
-				mes "I'm in charge of hiring";
-				mes "temp contract workers, so";
-				mes "talk to me if you're interested. Only temp workers are allowed";
-				mes "to access the higher levels";
-				mes "here in Thanatos Tower.";
-				next;
-				goto L_Contract;
+        break;
 			case 3:
 				mes "[Ditze]";
-				mes "To develop the floors above";
-				mes "the 2nd floor, we're going to";
-				mes "need as many temp contract";
-				mes "workers as we can hire. Why";
-				mes "don't you consider working";
-				mes "for us under a temp contract?";
+				mes "Para liberar os andares acima";
+				mes "do segundo, nós estamos contratando";
+				mes "o máximo de trabalhadores temporários";
+				mes "que conseguirmos. Por que";
+				mes "você não considera a possibilidade";
+				mes "de trabalhar para nós?";
 				close;
 			}
 		case 2:
-			mes "[Ditze]";
-			mes "You may have already heard";
-			mes "from the Tower Keeper, but";
-			mes "we're contracting adventurers to exterminate the tower monsters";
-			mes "in the 3rd and higher levels on";
-			mes "a temporary employee basis.";
-			next;
-			mes "[Ditze]";
-			mes "I'm in charge of hiring";
-			mes "temp contract workers, so";
-			mes "talk to me if you're interested. Only temp workers are allowed";
-			mes "to access the higher levels";
-			mes "here in Thanatos Tower.";
-			next;
-			goto L_Contract;
+      break;
 		case 3:
 			mes "[Ditze]";
-			mes "Well, if you have any";
-			mes "questions, feel free to";
-			mes "ask me later. My name is";
-			mes "Ditze Lappa. Have a good day!";
+			mes "Bem, se você tiver alguma";
+			mes "questão, fique à vontade para";
+			mes "perguntar para mim. Meu nome é ";
+			mes "Ditze Lappa. Tenha um bom dia.";
 			close;
 		}
 	}
 	mes "[Ditze]";
-	mes "For more detailed information";
-	mes "about monster exterminations,";
-	mes "please ask the 2nd Floor Guide";
-	mes "and the Guide next to me. Well,";
-	mes "we hope you enjoy your experience working with Rekenber Corporation~";
+	mes "Para informações mais detalhadas";
+	mes "sobre o extermínio de monstros,";
+	mes "por favor, pergunte ao Guia do 2º andar";
+	mes "e ao Guia ao meu lado. Bom,";
+	mes "esperamos que você aproveite sua experiência trabalhando para a Corporação Rekenber!";
 	close;
 
 L_Contract:
-	switch(select("Maybe next time:Sure, I'd like to work for you.")) {
+		switch(select("Quem sabe da próxima vez.","Claro, eu gostaria de trabalhar para vocês.")) {
 	case 1:
 		mes "[Ditze]";
-		mes "Well, alright.";
-		mes "But come and talk to";
-		mes "me as soon as you decide";
-		mes "that you want to help with";
-		mes "the tower reconstruction by";
-		mes "working for Rekenber.";
+		mes "Certo, certo.";
+		mes "Então venha falar comigo";
+		mes "assim que você se decidir";
+		mes "se deseja nos ajudar com";
+		mes "a reconstrucão da torre,";
+		mes "trabalhando para a Rekenber.";
 		close;
 	case 2:
 		mes "[Ditze]";
-		mes "That's great!";
-		mes "Would you please fill";
-		mes "out this employment";
-		mes "agreement first? Let's";
-		mes "see. Your name is...";
-		mes strcharinfo(0) + ", right?";
+		mes "Isso é ótimo!";
+		mes "Você poderia, por favor, preencher";
+		mes "este formulário de";
+		mes "contratação antes? Vamos";
+		mes "ver. Seu nome é...";
+		mes ""+strcharinfo(0)+", certo?";
 		next;
-		select("Yes");
+		select("Sim");
 		mes "[Ditze]";
-		mes "Alright, please read";
-		mes "this agreement carefully.";
-		mes "If you agree with all of";
-		mes "the conditions, go ahead";
-		mes "and just sign the bottom.";
+		mes "Certo, por favor leia";
+		mes "o contrato com muita atenção.";
+		mes "Se você concordar com todas as";
+		mes "condições, vá em frente";
+		mes "e assine embaixo.";
 		next;
-		mes "^3355FFDitze hands you the";
-		mes "Employment Agreement";
-		mes "document for you to read.^000000";
+		mes "^3355FFDitze entregará ";
+		mes "o Contrato de Trabalho";
+		mes "para você dar uma lida.^000000";
 		next;
-		mes "- Employment Agreement -";
+		mes "- Contrato de Trabalho -";
 		mes " ";
-		mes "1. This employment agreement";
-		mes "is effective between Rekenber";
-		mes "Corporation (''Employer'') and "+strcharinfo(0)+"(''Employee'').";
-		mes "1-1. This employment agreement";
-		mes "is classified as a Mercernary";
-		mes "contract between both parties.";
-		mes "2. The terms of this contract";
-		mes "immediately take effect once";
-		mes "it is signed by both parties";
-		mes "(Employer and Employee).";
-		mes "3. When the Employee performs";
-		mes "a mission, the mission results";
-		mes "must be verified with acceptible physical proof that must be";
-		mes "presented to the Employer.";
-		mes "3-1. Please refer to Section";
-		mes "7A for examples of acceptible";
-		mes "proof of monster extermination.";
-		mes "3-2. Acceptible proof is";
-		mes "determined and defined by a";
-		mes "representative of the Employer.";
-		mes "4. Employer will allot rewards";
-		mes "to Employees after receiving";
-		mes "extermination proof.";
-		mes "4-1. Possible rewards for";
-		mes "monster exterminations may";
-		mes "include the following.";
+		mes "1. O Contrato de Trabalho";
+		mes "é efetivado entre a Corporação";
+		mes "Rekenber (''Contratador'') e  "+strcharinfo(0)+"(''Funcionário'').";
+		mes "1-1. Este contrato de trabalho";
+		mes "é classificado como uma Troca";
+		mes "de Interesses entre os dois lados.";
+		mes "2. Os termos deste contrato";
+		mes "têm efeito imediatamente";
+		mes "quando assinado por ambas as partes";
+		mes "(Contratador e Empregado).";
+		mes "3. Quando o Empregado executa";
+		mes "uma missão, ele será avaliado";
+		mes "com um teste físico que será ";
+		mes "apresentado pelo Contratador.";
+		mes "3-1. Por favor, verifique a seção";
+		mes "7A para exemplos de testes";
+		mes "de extermínio de monstros.";
+		mes "3-2. O teste disponibilizado";
+		mes "pelo Contratador será definido e ";
+		mes "determinado pelo mesmo.";
+		mes "4. O contratador dará recompensas";
+		mes "ao empregado após receber";
+		mes "o certificado de extermínio.";
+		mes "4-1. Possíveis recompensas para";
+		mes "o extermínio de monstros podem";
+		mes "ser uma das listadas abaixo.";
 		mes ".................................................";
 		mes ".................................................";
 		mes ".................................................";
 		mes ".................................................";
 		mes ".................................................";
-		mes "13. This contract's terms are";
-		mes "only applicable witin Thanatos";
-		mes "Tower.";
-		mes "14. Employees will receive";
-		mes "a discount on the Entry Fee";
-		mes "to the Thanatos Tower.";
+		mes "13. Os termos deste contrato se";
+		mes "aplicam apenas ao que envolver a";
+		mes "Torre de Thanatos.";
+		mes "14. Empregados receberão um";
+		mes "desconto na taxa de entrada";
+		mes "para a Torre de Thanatos!";
 		mes " ";
 		mes " ";
 		mes " ";
-		mes "Employer Signature____________";
-		mes "Employee Signature____________";
+		mes "Assinatura do Contratador____________";
+		mes "Assinatura do Empregado____________";
 		next;
-		switch(select("Sign:Don't Sign")) {
+		switch(select("Assinar:Não assinar")) {
 		case 1:
-			mes "^3355FFYou sign two copies of the";
-			mes "Employment Agreement.^000000";
+			mes "^3355FFVocê assinou as duas cópias do";
+			mes "Contrato de Trabalho.^000000";
 			next;
 			mes "[Ditze]";
-			mes "Thank you. Now, you are";
-			mes "an official employee of the";
-			mes "Rekenber Corporation! Well,";
-			mes "within the limits of this tower";
-			mes "anyway. This contract doesn't";
-			mes "apply outside of this place.";
+			mes "Obrigado. Agora você ";
+			mes "é um empregado oficial da";
+			mes "Corporação Rekenber! Bem,";
+			mes "dentro dos limites da torre";
+			mes "obviamente. Este contrato não se";
+			mes "aplica a nada que não aconteça na região da torre.";
 			next;
 			mes "[Ditze]";
-			mes "From now on, you can talk";
-			mes "to the 2nd Floor Guide to";
-			mes "enter the 3rd Floor. If you";
-			mes "have any mission reward";
-			mes "questions, please ask ^3355FFLiei^000000.";
+			mes "De agora e diante, você pode falar";
+			mes "com o Guia do 2º Andar para";
+			mes "entrar no 3º Andar. Se tiver";
+			mes "alguma questão sobre recompensa de alguma";
+			mes "missão, por favor, fale com ^3355FFLiei^000000.";
 			next;
 			mes "[Ditze]";
-			mes "If you want to check";
-			mes "more information about";
-			mes "your work, please talk";
-			mes "to the 2nd Floor Guide.";
-			mes "Thank you, and welcome";
-			mes "to the Rekenber Corporation~";
-			thana_tower = 1;
+			mes "Se você quiser obter";
+			mes "mais informações sobre";
+			mes "seu trabalho, por favor";
+			mes "fale com o Guia do 2º Andar.";
+			mes "Obrigado, e bem-vindo";
+			mes "à Corporação Rekenber!";
+			set thana_tower, 1;
 			close;
 		case 2:
 			mes "[Ditze]";
-			mes "Oh? Was there an article";
-			mes "within the contract that you";
-			mes "disagreed with? Hm. Well,";
-			mes "that's fine. But if you change";
-			mes "your mind, please come back";
-			mes "and ask me anytime. Thank you~";
+			mes "Oh?! Existe uma cláusula";
+			mes "no contrato com a qual você ";
+			mes "não concorda? Hm. Tudo";
+			mes "bem. Mas, se você mudar";
+			mes "de idéia, por favor volte";
+			mes "e fale comigo. Obrigado...";
 			close;
 		}
 	}
 }
 
-tha_t01,140,78,4	script	Guide#reward	4_F_ZONDAGIRL,{
+tha_t01,140,78,4	script	Guia#premio	4_F_ZONDAGIRL,{
 	mes "[Liei]";
 	if (thana_tower == 0) {
-		mes "Good day, I'm";
-		mes "Liei Kuniziet of the";
-		mes "Employee Mission";
-		mes "Reward Department";
-		mes "here in Thanatos Tower.";
+		mes "Bom dia, meu nome é ";
+		mes "Liei Kuniziet do";
+		mes "Departamento de";
+		mes "Recompensas dos Empregados";
+		mes "da Torre de Thanatos.";
 		next;
-		switch(select("Employee's mission reward?:Keep up the good work.")) {
+		switch(select("Recompensa dos empregados?:Continue com o bom trabalho.")) {
 		case 1:
 			mes "[Liei]";
-			mes "Currently, Rekenber Corporation";
-			mes "is contracting temp employees";
-			mes "to develop the higher levels";
-			mes "of Thanatos Tower. If you'd";
-			mes "like to apply, please ask";
-			mes "Ditze right next to me.";
+			mes "Atualmente, a Corporação Rekenber";
+			mes "está contratando trabalhadores temporários";
+			mes "para liberar o acesso a todos os andares";
+			mes "da Torre de Thanatos. Se quiser";
+			mes "se inscrever, por favor pergunte ao";
+			mes "Ditze bem aqui do meu lado.";
 			close;
 		case 2:
 			mes "[Liei]";
-			mes "Thank you. Ah, and I hope";
-			mes "that you enjoy your visit";
-			mes "here to Thanatos Tower.";
+			mes "Obrigada. Espero que você ";
+			mes "aproveite sua visita";
+			mes "na Torre de Thanatos.";
 			close;
 		}
 	}
-	mes "Ah, hello~";
-	mes "How may I help you?";
+	mes "Ah, olá!";
+	mes "Em que posso ajudar?";
 	next;
-	if(select("Reward:Nothing") == 2) {
+	if (select("Recompensa:Nada") == 2) {
 		mes "[Liei]";
-		mes "Alright, then.";
-		mes "Please do your best";
-		mes "to exterminate the";
-		mes "monsters that infest";
-		mes "the higher floors of";
-		mes "the Thanatos Tower~";
+		mes "Por favor, dê o melhor de si";
+		mes "para exterminar";
+		mes "os monstros que infestam";
+		mes "os andares mais altos da";
+		mes "Torre de Thanatos!";
 		close;
 	}
 	mes "[Liei]";
-	mes "You're "+strcharinfo(0)+", yes?";
-	mes "Let me check our temp";
-	mes "employee records for--ah.";
-	mes "Here it is. Alright, so would";
-	mes "you please tell me what kind";
-	mes "of mission proof you brought?";
+	mes "Seu nome é "+strcharinfo(0)+", certo?";
+	mes "Deixe-me checar seus dados";
+	mes "de trabalhador temporário...";
+	mes "Ah! Aqui está. Certo, você ";
+	mes "pode, por favor, me contar qual";
+	mes "o tipo de item que você trouxe?";
 	next;
-	setarray .@items[1],7435,7440,7441,7442;
-	.@i = select("Golden Ornament:Red Feather:Blue Feather:Cursed Seal");
+	setarray .@Items[1],7435,7440,7441,7442;
+	set .@i, select("Ornamento Dourado:Pluma Vermelha:Pluma Azul:Selo Amaldiçoado");
 	mes "[Liei]";
-	if (!countitem(.@items[.@i])) {
-		mes "I'm sorry, but you are not";
-		mes "carrying any "+getitemname(.@items[.@i])+"s.";
-		mes "Please check your inventory";
-		mes "one more time, and then come";
-		mes "to me to redeem your items";
-		mes "for a reward later, alright?";
+	if (!countitem(.@Items[.@i])) {
+		mes "Sinto muito, mas você não";
+		mes "está carregando nenhum "+callfunc("F_GetPlural",getitemname(.@Items[.@i]))+".";
+		mes "Por favor, verifique seu inventário";
+		mes "mais uma vez, e então";
+		mes "volte para pegar seus itens";
+		mes "de recompensa, certo?";
 		close;
 	}
-	mes "The reward for each";
-	mes getitemname(.@items[.@i])+" is...";
+	mes "A recompensa será:";
+	mes getitemname(.@Items[.@i])+"...";
 	mes " ";
-	mes "1,000 zeny";
-	//mes "2,000 EXP";
+	mes "1,000 zenys";
+	//mes "2,000 pontos de experiência";
 	next;
-	.@zeny_tt = (countitem(.@items[.@i]) * 1000);
-	//.@exp_tt = (countitem(.@items[.@i]) * 2000);
+	set .@zeny_tt,(countitem(.@Items[.@i]) * 1000);
+	//set .@exp_tt,(countitem(.@Items[.@i]) * 2000);
 	mes "[Liei]";
-	mes countitem(.@items[.@i])+" "+getitemname(.@items[.@i])+"s, then";
-	mes "you will receive a total of...";
+	mes callfunc("F_InsertPlural",countitem(.@Items[.@i]),getitemname(.@Items[.@i]))+", then";
+	mes "receberá um total de...";
 	mes " ";
 	mes ""+.@zeny_tt+" zeny";
 	//mes ""+.@exp_tt+" EXP";
 	next;
 	mes "[Liei]";
-	mes "Would you like to exchange";
-	mes "all of your "+getitemname(.@items[.@i])+"s";
-	mes "for your reward right now?";
+	mes "Gostaria de trocar";
+	mes "todas as suas "+callfunc("F_GetPlural",getitemname(.@Items[.@i]));
+	mes "pela sua recompensa agora?";
 	next;
-	switch(select("Yes:No")) {
+	switch(select("Sim:Não")) {
 		case 1:
 			mes "[Liei]";
-			mes "Great! Here is your";
-			mes .@zeny_tt+" zeny. Thank you,";
+			mes "Ótimo! Aqui estão seus";
+			mes .@zeny_tt+" zeny. Obrigado,";
 			//mes .@exp_tt+" EXP. Thank you,";
-			mes "and please keep up";
-			mes "the good work~";
-			delitem .@items[.@i], countitem(.@items[.@i]);
-			Zeny += .@zeny_tt;
+			mes "e, por favor, continue";
+			mes "com o bom trabalho!";
+			delitem .@Items[.@i], countitem(.@Items[.@i]);
+			set Zeny, Zeny + .@zeny_tt;
 			//getexp .@exp_tt,0;
 			close;
 		case 2:
 			mes "[Liei]";
-			mes "Sure, no problem.";
-			mes "Just come back and";
-			mes "talk to me whenever";
-			mes "you want to receive";
-			mes "your reward, alright?";
+			mes "Claro, sem problemas.";
+			mes "Apenas volte aqui e";
+			mes "fale comigo";
+			mes "quando quiser receber";
+			mes "sua recompensa, certo?";
 			close;
 	}
 }
 
-tha_t02,231,161,5	script	Entrance Guide	4_M_ZONDAMAN,{
+tha_t02,231,161,5	script	Guia da Entrada	4_M_ZONDAMAN,{
 	mes "[Burled]";
 	if (thana_tower == 0) {
-		mes "You are in front of the entrance to the 3rd Floor. Only contracted";
-		mes "temp employees are authorized";
-		mes "to enter that area. For Rekenber temp contract information, please";
-		mes "speak to the 2nd Floor Guide.";
+		mes "Você está frente à entrada para o 3º Andar. Apenas empregados";
+		mes "contratados estão autorizados";
+		mes "a entrar nesta área. Para informações sobre contrato com a Corporação Rekenber, por favor";
+		mes "fale com o Guia do 2º Andar.";
 		close;
 	}
 	mes "This is the path to the 3rd floor.";
 	mes "Only the contracted staff are allowed to enter.";
 	mes "How can I help you?";
 	next;
-	switch(select("Let me go to 3rd floor.:Tower Information.:Start a conversation.")) {
+	switch(select("Entrar no 3º Andar.:Informações da Torre.:Iniciar uma conversa.")) {
 	case 1:
 		mes "[Burled]";
-		mes "Oh, alright. Let me";
-		mes "check and see if you're";
-		mes "on our temp list. Hmmm...";
-		mes "Ah, you're "+strcharinfo(0)+", right?";
+		mes "Ah, certo. Deixe-me checar";
+		mes "se você está na nossa";
+		mes "lista de empregados. Humm....";
+		mes "Ah, seu nome é "+strcharinfo(0)+", certo?";
 		next;
 		mes "[Burled]";
 		if (getareausers("tha_t02",226,156,236,166) < 5) {
-			mes "First, we need to wait until";
-			mes "at least 5 temps are gathered";
-			mes "to form a work group. Right";
-			mes "now, there are a total of";
-			mes getareausers("tha_t02",226,156,236,166)+ " temp workers waiting to";
-			mes "enter the 3rd Floor.";
+			mes "Primeiro, precisamos esperar pelo menos";
+			mes "5 empregados se reunirem aqui";
+			mes "para formar um grPara Cimao de trabalho. Certo,";
+			mes "até o momento temos um total de";
+			mes ""+ .@thana_level2 +" empregados esperando";
+			mes "para entrar no 3º Andar.";
 			next;
 			mes "[Burled]";
-			mes "If you can, try to get";
-			mes "your friends to help you";
-			mes "by coming near me. Please";
-			mes "understand that we have this";
-			mes "temp worker group requirement";
-			mes "for various safety reasons.";
+			mes "Se você puder, junte";
+			mes "seus amigos perto de mim";
+			mes "para eles te ajudarem. Por favor,";
+			mes "entenda que precisamos esperar";
+			mes "que se formem estes grPara Cimaos de trabalho para";
+			mes "preencher diversas regras de segurança.";
 			close;
 		}
-		mes "Great, you're just";
-		mes "in time. We just met";
-		mes "the minimum 5 temp group";
-		mes "requirement, so we'll open";
-		mes "the gate to the 3rd Floor soon.";
+		mes "Ótimo, você chegou";
+		mes "bem na hora. Acabo de atingir";
+		mes "o mínimo de 5 empregados";
+		mes "para formar um grPara Cimao, então vou abrir";
+		mes "os portões para o 3º Andar em diante.";
 		next;
 		mes "[Burled]";
-		mes "The gate to the 3rd Floor";
-		mes "will close shortly, so enter it";
-		mes "as soon as you can. We have";
-		mes "to close it quickly because we";
-		mes "can't have the tower monsters";
-		mes "entering the lower floors...";
+		mes "Os portões para o 3º Andar";
+		mes "se fecharão em breve, entre";
+		mes "o mais rápido que puder. Nós temos que";
+		mes "fechá-los rápido por causa";
+		mes "dos monstros, eles não podem invadir";
+		mes "os 1º e 2º andares...";
 		if (thana_tower > 3) {
 			next;
-			mes "^4d4dffBurled is smiling lightly so that only I notice.";
-			mes "I nod, then watch him open the gate.^000000";
+			mes "^4d4dffBurled está com um leve sorriso no rosto.";
+			mes "Balança a cabeça e logo abre o portão.^000000";
 		}
 		close2;
 		donpcevent "3rdf_warp#tt::OnEnable";
 		end;
 	case 2:
 		mes "[Burled]";
-		mes "This gate is the only passage";
-		mes "that connects to the 3rd Floor.";
-		mes "After the 4th Floor, passages";
-		mes "between floors only travel one";
-		mes "way, meaning you can't exit the";
-		mes "same way you that you entered.";
+		mes "Este portão é a única passagem";
+		mes "que nos conecta ao 3º andar.";
+		mes "Depois do 4º andar, as passagens";
+		mes "entre os andares é de apenas uma";
+		mes "direção, ou seja, você não poderá sair pelo";
+		mes "mesmo caminho que entrou.";
 		next;
 		mes "[Burled]";
-		mes "You see, there's a strange";
-		mes "power that affects the 5th";
-		mes "Floor, and all floors above,";
-		mes "which doesn't allow people to";
-		mes "backtrack through the passage in which they entered the floor.";
+		mes "Você pode perceber que existe uma energia";
+		mes "estranha que afeta do 5º ";
+		mes "andar em diante e";
+		mes "que não permite que as pessoas";
+		mes "voltem pela passagem pela qual entraram.";
 		next;
 		mes "[Burled]";
-		mes "So if you ascend past the";
-		mes "4th Floor, please be careful";
-		mes "and make sure that you find";
-		mes "a way to get back.";
+		mes "Se você passar do";
+		mes "4º Andar, tenha cuidado";
+		mes "e tenha certeza de que vai achar";
+		mes "o caminho de volta. Além disso os";
+		mes "monstros são cada vez";
+		mes "mais fortes conforme você vai subindo a torre...";
 		next;
 		mes "[Burled]";
-		mes "The top is the 12th floor,";
-		mes "and the monsters grow more powerful";
-		mes "as you ascend the tower.";
-		mes "The geographical features also change considerably.";
-		next;
-		mes "[Burled]";
-		mes "Because the higher levels are";
-		mes "too dangerous, we only open the";
-		mes "3rd Floor Gate when 5 or more";
-		mes "are gathered here. Therefore,";
-		mes "you may need to wait if less";
-		mes "than 5 temps have gathered.";
+		mes "Por conta dos andares mais altos";
+		mes "serem muito perigosos, nós apenas";
+		mes "abrimos os portões para o 3º Andar quando";
+		mes "juntamos 5 empregados aqui. Portanto,";
+		mes "você precisa esperar se";
+		mes "não houver número suficiente de empregados.";
 		close;
 	case 3:
 		if (thana_tower < 3) {
 			mes "[Burled]";
 			mes "...?";
-			mes "Do you have any questions?";
+			mes "Você tem alguma dúvida?";
 			next;
-			if(select("About the development.:The relationship of Cool Event Corporation and Rekenber Corporation.:Nope.") == 3) {
+			if (select("Sobre o desenvolvimento.:A relação do Cool Corporação de Eventos e Corporação Rekenber.:Não.") == 3) {
 				mes "[Burled]";
-				mes "Take care.";
+				mes "Cuidar.";
 				close;
 			}
 			mes "[Burled]";
-			mes "...um, you're quite curious.";
-			mes "If you want to know more, would you do me a favor?";
-			mes "Since you asked for our confidential info...";
+			mes "...hum, você é muito curioso.";
+			mes "Se você quiser saber mais, você poderia me fazer um favor?";
+			mes "Desde que você pediu para a nossa informação confidencial...";
 			next;
-			if(select("Really? Don't make me afraid of it.:Just tell me about it.:I'll listen about it later.") == 3) {
+			if (select("Sério? Não me faça medo.:Apenas me diga sobre ele.:Eu vou ouvir sobre isso mais tarde.") == 3) {
 				mes "[Burled]";
-				mes "As you wish...";
-				mes "Take care!";
+				mes "Como quiser...";
+				mes "Cuida!";
 				close;
 			}
 			mes "[Burled]";
-			mes "Haha. That's not a big deal.";
-			mes "We, Cool Event, are the corporation that works in many areas of business.";
-			mes "From simple events, guides for dungeons, and trading items.";
+			mes "Haha. Isso não é um grande negócio.";
+			mes "Nós, Cool Evento, estão a corporação que trabalha em muitas áreas de negócio.";
+			mes "A partir de eventos simples, guias para dungeons, e itens comerciais.";
 			next;
 			mes "[Burled]";
-			mes "Though our business started as a small one, we've been getting bigger with assistance from the Rekenber Corporation.";
-			mes "They suggested to develop this tower together.";
+			mes "Embora nosso negócio tenha começado pequena, temos sido cada vez maior com a assistência da Corporação Rekenber.";
+			mes "Eles sugeriram o desenvolvimento desta torre em conjunto.";
 			next;
 			mes "[Burled]";
-			mes "The Rekenber Corporation is only digging out the remains for studies.";
-			mes "The rest would be made into sightseeing place, which Cool Event Corporation can manage well.";
+			mes "A Corporação Rekenber só cava os restos para estudos.";
+			mes "O resto seria feito no lugar de turismo, que refrigeram Evento Corporation pode gerir bem.";
 			next;
 			mes "[Burled]";
-			mes "It's the biggest business ever.";
+			mes "Já é o maior negócio.";
 			mes "Also quite profitable as tourist attractions.";
 			mes "But...";
 			next;
@@ -694,7 +672,7 @@ tha_t02,231,161,5	script	Entrance Guide	4_M_ZONDAMAN,{
 				mes "I talked a lot.";
 				mes "Sorry, I am not supposed to talk about this case like this...";
 				mes "I've been quite concerned about it, that's all.";
-				thana_tower = 3;
+				set thana_tower, 3;
 				close;
 			case 2:
 				mes "[Burled]";
@@ -810,7 +788,7 @@ tha_t02,231,161,5	script	Entrance Guide	4_M_ZONDAMAN,{
 			mes " ";
 			mes "^4d4dffYou acquire one Old Violet Box,";
 			mes "as well as a little EXP.^000000";
-			thana_tower = 10;
+			set thana_tower, 10;
 			completequest 7053;
 			getexp 120000,10000;
 			getitem 617,1; //Old_Violet_Box
@@ -822,7 +800,7 @@ tha_t02,231,161,5	script	Entrance Guide	4_M_ZONDAMAN,{
 			mes "Is there a Phantom on the top of this tower?";
 			if (rand(3) == 1) {
 				mes "You look tired. This isn't a big deal, but it's for you.";
-				npcskill "AL_HEAL",10,50,70;
+				npcskill "AL_HEAL",11,50,70;
 			}
 			close;
 		}
@@ -864,7 +842,7 @@ L_Request:
 	mes "He seriously wants to know about it.";
 	mes "His hands are trembling now...";
 	mes "I nodd without answering.";
-	thana_tower = 4;
+	set thana_tower, 4;
 	setquest 7048;
 	return;
 }
@@ -999,7 +977,7 @@ L_Key:
 		next;
 		mes "That's all.";
 		mes "The letters fly away in the form of a red key...";
-		thana_tower = 5;
+		set thana_tower, 5;
 		changequest 7048,7049;
 		specialeffect2 EF_COMBOATTACK1;
 		close;
@@ -1022,9 +1000,9 @@ tha_t04,195,195,0	script	Rune Device#tt2	HIDDEN_NPC,3,3,{
 		mes "once or use the number 0.";
 		next;
 		while (1) {
-			.@yagu100 = rand(1,9);
-			.@yagu10 = rand(1,9);
-			.@yagu1 = rand(1,9);
+			set .@yagu100, rand(1,9);
+			set .@yagu10, rand(1,9);
+			set .@yagu1, rand(1,9);
 			if (((.@yagu100 != .@yagu10) && (.@yagu100 != .@yagu1)) && (.@yagu10 != .@yagu1))
 				break;
 		}
@@ -1040,8 +1018,8 @@ tha_t04,195,195,0	script	Rune Device#tt2	HIDDEN_NPC,3,3,{
 					mes "3 digit number.";
 					close;
 				}
-				.@input100 = .@input / 100;
-				.@input10 = (.@input % 100) / 10;
+				set .@input100, .@input / 100;
+				set .@input10, (.@input % 100) / 10;
 				if (((.@input100 > 0) && (.@input10 > 0)) && (.@input % 10 > 0)) {
 					if (((.@input100 != .@input10) && (.@input100 != .@input % 10)) && (.@input10 != .@input % 10))
 						break;
@@ -1054,7 +1032,7 @@ tha_t04,195,195,0	script	Rune Device#tt2	HIDDEN_NPC,3,3,{
 					next;
 				}
 			}
-			++.@retry;
+			set .@retry, .@retry + 1;
 			mes "[Screen]";
 			mes "You have input...";
 			mes "^0000ff" + .@input100 + "^000000, ^0000ff" + .@input10 + "^000000, ^0000ff" + (.@input % 10) + "^000000";
@@ -1062,14 +1040,14 @@ tha_t04,195,195,0	script	Rune Device#tt2	HIDDEN_NPC,3,3,{
 			mes "Calculating Results...";
 			mes "Please wait a moment...";
 			next;
-			.@strike = 0;
-			.@ball = 0;
-			if (.@yagu100 == .@input100) .@strike += 1;
-			if (.@yagu10 == .@input10) .@strike += 1;
-			if (.@yagu1 == .@input % 10) .@strike += 1;
-			if ((.@yagu100 == .@input10) || (.@yagu100 == .@input % 10)) .@ball += 1;
-			if ((.@yagu10 == .@input100) || (.@yagu10 == .@input % 10)) .@ball += 1;
-			if ((.@yagu1 == .@input100) || (.@yagu1 == .@input10)) .@ball += 1;
+			set .@strike, 0;
+			set .@ball, 0;
+			if (.@yagu100 == .@input100) set .@strike, .@strike + 1;
+			if (.@yagu10 == .@input10) set .@strike, .@strike + 1;
+			if (.@yagu1 == .@input % 10) set .@strike, .@strike + 1;
+			if ((.@yagu100 == .@input10) || (.@yagu100 == .@input % 10)) set .@ball, .@ball + 1;
+			if ((.@yagu10 == .@input100) || (.@yagu10 == .@input % 10)) set .@ball, .@ball + 1;
+			if ((.@yagu1 == .@input100) || (.@yagu1 == .@input10)) set .@ball, .@ball + 1;
 			if (.@strike == 3) {
 				mes "[Screen]";
 				mes "Input number accepted.";
@@ -1116,7 +1094,7 @@ tha_t04,195,195,0	script	Rune Device#tt2	HIDDEN_NPC,3,3,{
 					mes "^b22222This tower set up for...^000000";
 					next;
 					mes "It suddenly shakes, then disappears.";
-					thana_tower = 6;
+					set thana_tower, 6;
 					changequest 7049,7050;
 					specialeffect2 EF_COMBOATTACK1;
 					close;
@@ -1165,7 +1143,7 @@ tha_t05,62,179,0	script	Brilliant Statue#tt3	HIDDEN_NPC,3,3,{
 		mes "Red light is shining on a crack in the left wing, and gold light on a crack in the right one.";
 		mes "What will you do?";
 		next;
-		if(select("Stick the key into the crack...:Ignore it.") == 2) {
+		if (select("Stick the key into the crack...:Ignore it.") == 2) {
 			mes "^3355FFYou decide to leave";
 			mes "the statue alone.^000000";
 			close;
@@ -1221,7 +1199,7 @@ tha_t05,62,179,0	script	Brilliant Statue#tt3	HIDDEN_NPC,3,3,{
 				mes "The truth is..........^000000";
 				next;
 				mes "The illusion shakes, then melts on the surface of the key as light.";
-				thana_tower = 7;
+				set thana_tower, 7;
 				changequest 7050,7051;
 				specialeffect2 EF_COMBOATTACK1;
 				close;
@@ -1251,7 +1229,7 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	HIDDEN_NPC,3,3,{
 		mes "There're red, yellow, and blue light in a row.";
 		mes "What will you do?";
 		next;
-		if(select("Investigate.:Ignore it.") == 2) {
+		if (select("Investigate.:Ignore it.") == 2) {
 			mes "^3355FFYou don't see the need to";
 			mes "investigate if nothing seems";
 			mes "peculiar or out of place...^000000";
@@ -1271,11 +1249,11 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	HIDDEN_NPC,3,3,{
 				mes "is still blank and deactivated.^000000";
 				close;
 			case 2:
-				.@small_1 = 0;
-				.@small_2 = 0;
-				.@big_1 = 0;
-				.@big_2 = 0;
-				.@big_3 = 0;
+				set .@small_1, 0;
+				set .@small_2, 0;
+				set .@big_1, 0;
+				set .@big_2, 0;
+				set .@big_3, 0;
 				mes "^3355FFYou touch the wheels and";
 				mes "find that they are actually";
 				mes "moving very slowly. You note";
@@ -1303,17 +1281,17 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	HIDDEN_NPC,3,3,{
 						switch(select("Raise Wheel:Lower Wheel:Press Wheel")) {
 						case 1:
 							mes "^EE0000*Choom*^000000";
-							.@small_1 = 2;
+							set .@small_1, 2;
 							if ((.@small_1 == 2) && (.@small_2 == 2) && (.@big_1 == 2) && (.@big_2 == 2) && (.@big_3 == 2)) break;
 							continue;
 						case 2:
 							mes "^00B2EE*Sneeeep*^000000";
-							.@small_1 = 1;
+							set .@small_1, 1;
 							if ((.@small_1 == 1) && (.@small_2 == 1) && (.@big_1 == 1) && (.@big_2 == 1) && (.@big_3 == 1)) break;
 							continue;
 						case 3:
 							mes "^5C246E*Mrreeem*^000000";
-							.@small_1 = 3;
+							set .@small_1, 3;
 							if ((.@small_1 == 3) && (.@small_2 == 3) && (.@big_1 == 3) && (.@big_2 == 3) && (.@big_3 == 3)) break;
 							continue;
 						}
@@ -1322,17 +1300,17 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	HIDDEN_NPC,3,3,{
 						switch(select("Raise Wheel:Lower Wheel:Press Wheel")) {
 						case 1:
 							mes "^5C246E*Mrreeem*^000000";
-							.@small_2 = 3;
+							set .@small_2, 3;
 							if ((.@small_1 == 3) && (.@small_2 == 3) && (.@big_1 == 3) && (.@big_2 == 3) && (.@big_3 == 3)) break;
 							continue;
 						case 2:
 							mes "^EE0000*Choom*^000000";
-							.@small_2 = 2;
+							set .@small_2, 2;
 							if ((.@small_1 == 2) && (.@small_2 == 2) && (.@big_1 == 2) && (.@big_2 == 2) && (.@big_3 == 2)) break;
 							continue;
 						case 3:
 							mes "^00B2EE*Sneeeep*^000000";
-							.@small_2 = 1;
+							set .@small_2, 1;
 							if ((.@small_1 == 1) && (.@small_2 == 1) && (.@big_1 == 1) && (.@big_2 == 1) && (.@big_3 == 1)) break;
 							continue;
 						}
@@ -1341,17 +1319,17 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	HIDDEN_NPC,3,3,{
 						switch(select("Raise Wheel:Lower Wheel:Vertically Shift Wheel")) {
 						case 1:
 							mes "^00B2EE*Sneeeep*^000000";
-							.@big_1 = 1;
+							set .@big_1, 1;
 							if ((.@small_1 == 1) && (.@small_2 == 1) && (.@big_1 == 1) && (.@big_2 == 1) && (.@big_3 == 1)) break;
 							continue;
 						case 2:
 							mes "^5C246E*Mrreeem*^000000";
-							.@big_1 = 3;
+							set .@big_1, 3;
 							if ((.@small_1 == 3) && (.@small_2 == 3) && (.@big_1 == 3) && (.@big_2 == 3) && (.@big_3 == 3)) break;
 							continue;
 						case 3:
 							mes "^EE0000*Choom*^000000";
-							.@big_1 = 2;
+							set .@big_1, 2;
 							if ((.@small_1 == 2) && (.@small_2 == 2) && (.@big_1 == 2) && (.@big_2 == 2) && (.@big_3 == 2)) break;
 							continue;
 						}
@@ -1360,17 +1338,17 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	HIDDEN_NPC,3,3,{
 						switch(select("Raise Wheel:Lower Wheel:Vertically Shift Wheel")) {
 						case 1:
 							mes "^EE0000*Choom*^000000";
-							.@big_2 = 2;
+							set .@big_2, 2;
 							if ((.@small_1 == 2) && (.@small_2 == 2) && (.@big_1 == 2) && (.@big_2 == 2) && (.@big_3 == 2)) break;
 							continue;
 						case 2:
 							mes "^5C246E*Mrreeem*^000000";
-							.@big_2 = 3;
+							set .@big_2, 3;
 							if ((.@small_1 == 3) && (.@small_2 == 3) && (.@big_1 == 3) && (.@big_2 == 3) && (.@big_3 == 3)) break;
 							continue;
 						case 3:
 							mes "^00B2EE*Sneeeep*^000000";
-							.@big_2 = 1;
+							set .@big_2, 1;
 							if ((.@small_1 == 1) && (.@small_2 == 1) && (.@big_1 == 1) && (.@big_2 == 1) && (.@big_3 == 1)) break;
 							continue;
 						}
@@ -1379,17 +1357,17 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	HIDDEN_NPC,3,3,{
 						switch(select("Raise Wheel:Lower Wheel:Vertically Shift Wheel")) {
 						case 1:
 							mes "^EE0000*Choom*^000000";
-							.@big_3 = 2;
+							set .@big_3, 2;
 							if ((.@small_1 == 2) && (.@small_2 == 2) && (.@big_1 == 2) && (.@big_2 == 2) && (.@big_3 == 2)) break;
 							continue;
 						case 2:
 							mes "^00B2EE*Sneeeep*^000000";
-							.@big_3 = 1;
+							set .@big_3, 1;
 							if ((.@small_1 == 1) && (.@small_2 == 1) && (.@big_1 == 1) && (.@big_2 == 1) && (.@big_3 == 1)) break;
 							continue;
 						case 3:
 							mes "^5C246E*Mrreeem*^000000";
-							.@big_3 = 3;
+							set .@big_3, 3;
 							if ((.@small_1 == 3) && (.@small_2 == 3) && (.@big_1 == 3) && (.@big_2 == 3) && (.@big_3 == 3)) break;
 							continue;
 						}
@@ -1421,11 +1399,11 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	HIDDEN_NPC,3,3,{
 						else mes "3rd Big Wheel: Moved";
 						continue;
 					case 7:
-						.@small_1 = 0;
-						.@small_2 = 0;
-						.@big_1 = 0;
-						.@big_2 = 0;
-						.@big_3 = 0;
+						set .@small_1, 0;
+						set .@small_2, 0;
+						set .@big_1, 0;
+						set .@big_2, 0;
+						set .@big_3, 0;
 						continue;
 					}
 					break;
@@ -1488,7 +1466,7 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	HIDDEN_NPC,3,3,{
 					next;
 					mes "The hallucination wobbles";
 					mes "and fades into the key.";
-					thana_tower = 8;
+					set thana_tower, 8;
 					changequest 7051,7052;
 					specialeffect2 EF_BEGINSPELL6;
 					specialeffect2 EF_SPELLBREAKER;
@@ -1524,7 +1502,7 @@ tha_t06,204,181,0	script	Splendid Sword#tt5	HIDDEN_NPC,3,3,{
 			mes "suddenly respond with a mysterious power.";
 			specialeffect2 EF_ABSORBSPIRITS;
 			next;
-			if(select("Observe it.:Ignore it.") == 2) {
+			if (select("Observe it.:Ignore it.") == 2) {
 				mes "^3355FFYou decide to leave";
 				mes "the sword alone.^000000";
 				close;
@@ -1574,7 +1552,7 @@ tha_t06,204,181,0	script	Splendid Sword#tt5	HIDDEN_NPC,3,3,{
 					next;
 					mes "^4d4dffYou decide to show the notebook and the keys to Burled.";
 					mes "You received Varmunt's Journal.^000000";
-					thana_tower = 9;
+					set thana_tower, 9;
 					changequest 7052,7053;
 					getitem 11011,1; //Barmund_Note
 					close;
@@ -1794,60 +1772,60 @@ tha_t08,90,144,0	duplicate(Shining Crystal#tt_g1)	Shining Crystal#tt_g4	CLEAR_NP
 tha_t12,161,57,0	script	Gold Religious Statue#tt	HIDDEN_NPC,{
 	if ($@thana_summon == 0) {
 		if (countitem(7427) > 0) {
-			mes "It's a statue giving off a golden light.";
-			mes "The sword appears to be missing a gem.";
-			mes "As I draw closer to the statue, the Yellow Charm Stone emits a bright light.";
+			mes "É uma estátua emitindo uma luz dourada.";
+			mes "A espada parece estar faltando uma jóia.";
+			mes "Quando me aproximo da estátua, a Pedra Mágica Amarela emite uma luz brilhante.";
 			specialeffect EF_BEGINSPELL5;
 			specialeffect2 EF_BEGINSPELL5;
 			next;
-			if(select("Insert the Yellow Charm Stone.:Run away.") == 2) close;
+			if (select("Insira a Pedra Mágica Amarela.:Fugir.") == 2) close;
 			if ($@thana_summon == 0) {
-				mes "After inserting the Yellow Charm Stone into the sword, the statue begins to react.";
+				mes "Depois de inserir a Pedra Mágica Amarela para a espada, a estátua começa a reagir.";
 				specialeffect EF_BEGINSPELL5;
 				delitem 7427,1; //Magic_Gem_Yellow
-				$@thana_summon = 1;
+				set $@thana_summon, 1;
 				donpcevent "#tteffect01::OnEnable";
-				mapannounce "tha_t12","The golden magic power has released part of the seal.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+				mapannounce "tha_t12","O poder mágico de ouro liberou parte do selo.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 				close;
 			}
-			mes "Someone has already inserted a Charm Stone into this statue.";
+			mes "Alguém já inseriu uma pedra encanto a esta estátua.";
 			close;
 		}
-		mes "The statue give off mysterious light.";
-		mes "Strange power has blocked your access.";
+		mes "A estátua emitem luz misteriosa.";
+		mes "Estranho poder bloqueou seu acesso.";
 		close;
 	}
-	mes "The statue has such a strong light that I can't see or touch it.";
+	mes "A estátua tem uma forte luz de tal forma que eu não posso ver ou tocá-lo.";
 	close;
 }
 
 tha_t12,154,17,0	script	Green Wiseman Statue#tt	HIDDEN_NPC,{
 	if ($@thana_summon == 1) {
 		if (countitem(7429) > 0) {
-			mes "A statue gives off green light.";
-			mes "The wiseman's wand seems to be missing a gem.";
-			mes "As I draw closer to the statue, the Green Charm Stone emits a bright light.";
+			mes "Uma estátua emite luz verde.";
+			mes "Aarece estar faltando uma jóia.";
+			mes "Começo me a aproximar da estátua, a Pedra Mágica Verde emite uma luz brilhante.";
 			specialeffect EF_BEGINSPELL4;
 			specialeffect2 EF_BEGINSPELL4;
 			next;
-			if(select("Insert the Green Charm Stone.:Run away.") == 2) close;
+			if (select("Insira a Pedra Mágica Verde.:Fugir.") == 2) close;
 			if ($@thana_summon == 1) {
-				mes "After inserting the Green Charm Stone into the wand, the statue begins to react.";
+				mes "Depois de inserir a Pedra Mágica Verde, a estátua começa a reagir.";
 				specialeffect EF_BEGINSPELL4;
 				delitem 7429,1; //Magic_Gem_Green
-				$@thana_summon = 2;
+				set $@thana_summon, 2;
 				donpcevent "#tteffect02::OnEnable";
-				mapannounce "tha_t12","The green magic power has released part of the seal.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+				mapannounce "tha_t12","O poder mágico verde liberou parte do selo.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 				close;
 			}
-			mes "Someone has already inserted a Charm Stone into this statue.";
+			mes "Alguém já inseriu uma pedra encanto a esta estátua.";
 			close;
 		}
-		mes "The statue give off mysterious light.";
-		mes "Strange power has blocked your access.";
+		mes "A estátua emitem luz misteriosa.";
+		mes "Estranho poder bloqueou seu acesso.";
 		close;
 	}
-	mes "The statue has such a strong light that I can't see or touch it.";
+	mes "A estátua tem uma forte luz de tal forma que eu não posso ver ou tocá-lo.";
 	close;
 }
 
@@ -1860,14 +1838,14 @@ tha_t12,103,17,0	script	Blue Angel Statue#tt	HIDDEN_NPC,{
 			specialeffect EF_BEGINSPELL2;
 			specialeffect2 EF_BEGINSPELL2;
 			next;
-			if(select("Insert the Blue Charm Stone.:Run away.") == 2) close;
+			if (select("Insert the Blue Charm Stone.:Run away.") == 2) close;
 			if ($@thana_summon == 2) {
 				mes "After inserting the Blue Charm Stone into the belt, the statue begins to react.";
 				specialeffect EF_BEGINSPELL2;
 				delitem 7428,1; //Magic_Gem_Blue
-				$@thana_summon = 3;
+				set $@thana_summon, 3;
 				donpcevent "#tteffect03::OnEnable";
-				mapannounce "tha_t12","The blue magic power has released part of the seal.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+				mapannounce "tha_t12","O poder mágico azul liberou parte do selo.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 				close;
 			}
 			mes "Someone has already inserted a Charm Stone into this statue.";
@@ -1890,14 +1868,14 @@ tha_t12,96,57,0	script	Bloody Knight Statue#tt	HIDDEN_NPC,{
 			specialeffect EF_BEGINSPELL3;
 			specialeffect2 EF_BEGINSPELL3;
 			next;
-			if(select("Insert the Red Charm Stone.:Run away.") == 2) close;
+			if (select("Insert the Red Charm Stone.:Run away.") == 2) close;
 			if ($@thana_summon == 3) {
 				mes "After inserting the Red Charm Stone into the armor, the statue begins to react.";
 				specialeffect EF_BEGINSPELL3;
 				delitem 7426,1; //Magic_Gem_Red
-				$@thana_summon = 4;
+				set $@thana_summon, 4;
 				donpcevent "#tteffect04::OnEnable";
-				mapannounce "tha_t12","The red magic power has released part of the seal.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+				mapannounce "tha_t12","O poder mágico vermelho liberou parte do selo.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 				close;
 			}
 			mes "Someone has already inserted a Charm Stone into this statue.";
@@ -1920,18 +1898,18 @@ tha_t12,129,86,0	script	Dark Devil Statue#tt	HIDDEN_NPC,{
 			specialeffect EF_BEGINSPELL7;
 			specialeffect2 EF_BEGINSPELL7;
 			next;
-			if(select("Insert the Black Charm Stone.:Run away.") == 2) close;
+			if (select("Insert the Black Charm Stone.:Run away.") == 2) close;
 			if ($@thana_summon == 4) {
 				mes "After inserting the Red Charm Stone into the eye socket, the statue begins to react.";
 				specialeffect EF_BEGINSPELL7;
 				delitem 7430,1; //Magic_Gem_Black
-				$@thana_summon = 5;
+				set $@thana_summon, 5;
 				donpcevent "#gateto_thanatos::OnEnable";
 				donpcevent "#tteffect01::OnStop";
 				donpcevent "#tteffect02::OnStop";
 				donpcevent "#tteffect03::OnStop";
 				donpcevent "#tteffect04::OnStop";
-				mapannounce "tha_t12","The Black Charm Stone's magic power has released the final seal.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+				mapannounce "tha_t12","O poder mágico da Pedra Mágica Preta lançou o selo final.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 				close;
 			}
 			mes "Someone has already inserted a Charm Stone into this statue.";
@@ -2056,7 +2034,7 @@ OnOn2:
 	initnpctimer;
 	end;
 OnTouch:
-	.@touch = 1;
+	set .@touch,1;
 OnTimer6000:
 	if (($@thana_summon == 0) || ($@thana_summon == 6)) {
 		disablenpc "#gateto_thanatos";
@@ -2068,7 +2046,7 @@ OnTimer6000:
 	end;
 OnTimer1000:
 OnTimer5000:
-	.@pillar = 1;
+	set .@pillar,1;
 OnTimer3000:
 	specialeffect EF_BEGINSPELL7,AREA,"#tteffect05";
 	specialeffect EF_BEGINSPELL3,AREA,"#tteffect04";
@@ -2083,14 +2061,14 @@ thana_boss,217,167,3	script	Memory Seal#tt1	G_THA_MAERO,3,3,{
 	end;
 OnEnable:
 	hideoffnpc strnpcinfo(0);
-	.hide = 0;
+	set .hide,0;
 	end;
 OnDisable:
 	hideonnpc strnpcinfo(0);
-	.hide = 0;
+	set .hide,0;
 	end;
 OnTouch:
-	.@seal = atoi(charat(strnpcinfo(2),2));
+	set .@seal, atoi(charat(strnpcinfo(2),2));
 	if (.hide & (1<<.@seal)) end;
 
 	//  .@i: ItemID,MobID,MapX,MapY,EffectNum
@@ -2098,27 +2076,27 @@ OnTouch:
 	switch(.@seal) {
 	case 1:
 		setarray .@i[0],7437,1711,217,167,238;
-		.@j$ = "Misery";
+		set .@j$,"Misery";
 		break;
 	case 2:
 		setarray .@i[0],7436,1712,202,75,102;
-		.@j$ = "Agony";
+		set .@j$,"Agony";
 		break;
 	case 3:
 		setarray .@i[0],7438,1709,80,76,101;
-		.@j$ = "Hatred";
+		set .@j$,"Hatred";
 		break;
 	case 4:
 		setarray .@i[0],7439,1710,62,171,100;
-		.@j$ = "Despair";
+		set .@j$,"Despair";
 		break;
 	}
 
 	specialeffect EF_GUMGANG;
 	if ($@thana_summon2 > 3) {
-		mes "^3355FFYou cannot approach";
-		mes "the crest because it is";
-		mes "generating intense heat.^000000";
+		mes "^3355FFVocê não pode se aproximar";
+		mes "do emblema por ele estar";
+		mes "emanando um calor intenso.^000000";
 		close;
 	}
 	mes "The seal seems to be dormant.";
@@ -2126,34 +2104,34 @@ OnTouch:
 	mes "Surely I saw a familiar fragment before...";
 	next;
 	input .@inputstr$;
-	.@exact_tt$ = "Fragment of "+.@j$;
+	set .@exact_tt$, "Fragment of "+.@j$;
 	if (countitem(.@i[0]) > 0 && .@exact_tt$ == .@inputstr$) {
-		mes "^3355FFYou insert the";
+		mes "^3355FFVocê inseriu o";
 		mes .@exact_tt$;
-		mes "into the crest, causing";
-		mes "its glow to intensify.^000000";
+		mes "no emblema, causando";
+		mes "um forte brilho.^000000";
 		close2;
 		hideonnpc strnpcinfo(0);
-		.hide |= (1<<.@seal);
+		set .hide, .hide | (1<<.@seal);
 		delitem .@i[0],1;
 		specialeffect .@i[4];
 		monster "thana_boss",.@i[2],.@i[3],.@j$,.@i[1],1,strnpcinfo(0)+"::OnMyMobDead";
 		switch($@thana_summon2) {
-			case 0: .@str$ = "... who... released... the... Memory... of... "+.@j$+"...?"; break;
-			case 1: .@str$ = "... why... did you... release... the... Memory... of... "+.@j$+"...?"; break;
-			case 2: .@str$ = "... ugh... stop it... the Memory of "+.@j$+"..."; break;
-			default: .@str$ = "... finally... you released the last piece of Memory..."; break;
+			case 0: set .@str$,"... who... released... the... Memory... of... "+.@j$+"...?"; break;
+			case 1: set .@str$,"... why... did you... release... the... Memory... of... "+.@j$+"...?"; break;
+			case 2: set .@str$,"... ugh... stop it... the Memory of "+.@j$+"..."; break;
+			default: set .@str$,"... finally... you released the last piece of Memory..."; break;
 		}
 		mapannounce "thana_boss",.@str$,bc_map,"0x7b68ee"; //FW_NORMAL 12 0 0
 		end;
 	}
-	mes "^3355FFThat action had no";
-	mes "effect. You'll have to";
-	mes "try something else.^000000";
+	mes "^3355FFEsta ação não surtiu";
+	mes "efeito. Você terá que";
+	mes "tentar outra coisa.^000000";
 	close;
 
 OnMyMobDead:
-	++$@thana_summon2;
+	set $@thana_summon2, $@thana_summon2+1;
 	if ($@thana_summon2 == 4)
 		mapwarp "thana_boss","thana_boss",141,228;
 	end;
@@ -2178,25 +2156,25 @@ OnTouch:
 	}
 	end;
 OnTimer1000:
-	mapannounce "thana_boss","Thanatos : RAWWWWWWWWWWWWWWWWR!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","Thanatos : BIIIIIIIIIIIIIRL!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer4000:
-	mapannounce "thana_boss","Thanatos : ... crashed... broken... spread... and come back as tears...",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","Thanatos : ... cair... quebrar... espalhar... e voltar como lágrimas...",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer7000:
-	mapannounce "thana_boss","Thanatos : I live again to fulfill my ambition!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","Thanatos : Eu vivo novamente para cumprir a minha ambição!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer10000:
-	mapannounce "thana_boss","Thanatos : ... gives off a strong bloody scent... soaked in sorrow...",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","Thanatos : ... exala um cheiro forte sangrenta... embebido em tristeza...",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer13000:
-	mapannounce "thana_boss","Thanatos : I will remove all people who invade this continent again!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","Thanatos : Tirarei todas as pessoas que invadem este continente novamente!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer16000:
-	mapannounce "thana_boss","Thanatos : Come, be the first to fall before my might!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","Thanatos : Venha, seja o primeiro a cair perante ao meu poder!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	donpcevent "Memory Seal#tt5::OnDisable";
 	donpcevent "#sommon_thanatos::OnEnable";
-	$@thana_summon2 = 5;
+	set $@thana_summon2, 5;
 	stopnpctimer;
 	end;
 }
@@ -2223,9 +2201,9 @@ OnEnable:
 	end;
 OnMyMobDead:
 	if (mobcount("thana_boss","#sommon_thanatos::OnMyMobDead") < 1) {
-		mapannounce "thana_boss","RAWWWWWWWWWWR........ This can't be.........................",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+		mapannounce "thana_boss","BIIIIIIIIIIRL........ Isso não pode ser.........................",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 		donpcevent "#cooltime_thana::OnEnable";
-		$@thana_summon = 6;
+		set $@thana_summon, 6;
 	}
 	end;
 }
@@ -2233,8 +2211,8 @@ OnMyMobDead:
 thana_boss,1,1,0	script	#cooltime_thana	CLEAR_NPC,{
 	end;
 OnInit:
-	$@thana_summon = 0;
-	$@thana_summon2 = 0;
+	set $@thana_summon, 0;
+	set $@thana_summon2, 0;
 	end;
 OnEnable:
 	initnpctimer;
@@ -2243,39 +2221,39 @@ OnStop:
 	stopnpctimer;
 	end;
 OnTimer3000:
-	mapannounce "thana_boss","Warning!!",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","Atenção!!",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer6000:
-	mapannounce "thana_boss","The seal will re-activate in 30 seconds.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","O selo vai reativar em 30 segundos.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer16000:
-	mapannounce "thana_boss","20 seconds left...",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","20 segundos à esquerda...",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer26000:
-	mapannounce "thana_boss","10 seconds left...",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","10 segundos à esquerda...",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer31000:
-	mapannounce "thana_boss","5 seconds.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","5 segundos.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer32000:
-	mapannounce "thana_boss","4 seconds.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","4 segundos.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer33000:
-	mapannounce "thana_boss","3 seconds.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","3 segundos.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer34000:
-	mapannounce "thana_boss","2 seconds.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","2 segundos.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer35000:
-	mapannounce "thana_boss","Time's up!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","Acabou o tempo!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer36000:
 OnTimer37000:
 	mapwarp "thana_boss","tha_t12",130,52;
 	end;
 OnTimer7200000:
-	$@thana_summon = 0;
-	$@thana_summon2 = 0;
+	set $@thana_summon, 0;
+	set $@thana_summon2, 0;
 	donpcevent "Memory Seal#tt1::OnEnable";
 	donpcevent "Memory Seal#tt2::OnEnable";
 	donpcevent "Memory Seal#tt3::OnEnable";
@@ -2290,24 +2268,25 @@ tha_t04,81,36,0	warp	to 5th Floor	1,1,tha_t05,62,8
 tha_t06,119,120,0	script	to 7th Floor	WARPNPC,1,1,{
 	end;
 OnTouch:
-	if (eaclass()&(EAJL_2|EAJL_UPPER) || eaclass()&EAJL_THIRD || ((Class == Job_SuperNovice || Class == Job_Taekwon || Class == Job_Star_Gladiator || Class == Job_Soul_Linker || BaseClass == Job_Ninja || Class == Job_Gunslinger) && BaseLevel > 94)) {		if (countitem(7425) > 0) {
-			mes "The shadow of a Black Key is gleaming in the center of the portal.";
-			mes "To pass this way, looks like I need something.";
+	if (eaclass()&(EAJL_2|EAJL_UPPER) || eaclass()&EAJL_THIRD || ((Class == Job_SuperNovice || Class == Job_Taekwon || Class == Job_Star_Gladiator || Class == Job_Soul_Linker || BaseClass == Job_Ninja || Class == Job_Gunslinger) && BaseLevel > 94)) {
+		if (countitem(7425) > 0) {
+			mes "A sombra de uma Chave Preta é brilhante no centro do portal.";
+			mes "Para passar por este caminho, parece que eu preciso de algo.";
 			next;
-			mes "The Black Key reacts to the portal and floats in the air.";
+			mes "A Chave Preta reage ao portal e flutua no ar.";
 			next;
-			mes "The key seems to separate into many particles and suddenly collapses into a ball.";
-			mes "The barricade is removed through the power from newly formed black magic gem.";
+			mes "A chave parece separar-se em muitas partículas e de repente cai em uma bola.";
+			mes "A barricada é removido através do poder do recém-formado Pedra Encantada Preta.";
 			close2;
 			delitem 7425,1; //Key_Black
 			getitem 7430,1; //Magic_Gem_Black
 			warp "thana_step",69,369;
 			end;
 		}
-		mes "The shadow of a Black Key is gleaming in the center of the portal.";
-		mes "To pass this way, looks like I need something.";
+		mes "A sombra de uma Chave Preta é brilhante no centro do portal.";
+		mes "Para passar por este caminho, parece que eu preciso de algo.";
 		close;
 	}
-	mes "A mysterious power is blocking my path.";
+	mes "Um poder misterioso está bloqueando o meu caminho.";
 	close;
 }
