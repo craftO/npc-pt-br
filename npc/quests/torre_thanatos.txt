@@ -622,8 +622,8 @@ tha_t02,231,161,5	script	Guia da Entrada	4_M_ZONDAMAN,{
 			next;
 			mes "[Burled]";
 			mes "Já é o maior negócio.";
-			mes "Also quite profitable as tourist attractions.";
-			mes "But...";
+			mes "Também bastante rentável como atrações turísticas.";
+			mes "Mas...";
 			next;
 			mes "[Burled]";
 			mes "Considerably strong monsters spawn inside the tower.";
